@@ -40,12 +40,6 @@ namespace TurtleGame
                     s = s + 1;
                     Turtle.Speed = s;
                     TextWindow.WriteLine("Score = " + s);
-                    if(s > 10)
-                    {
-                        x = rnd.Next(0, GraphicsWindow.Width - 10);
-                        y = rnd.Next(0, GraphicsWindow.Height - 10);
-                        Shapes.Move(eat, x, y);
-                    }
                 }
 
             }
