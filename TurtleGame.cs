@@ -16,30 +16,30 @@ namespace TurtleGame
             GraphicsWindow.BrushColor = "Red";
             var eat = Shapes.AddRectangle(10, 10);
             Random rnd = new Random();
-            //GraphicsWindow.DrawRectangle(10, 25, 625, 500);
-            int x = rnd.Next(10, 625);
-            int y = rnd.Next(50, 450);
-            TextWindow.WriteLine(x + "    " + y);
+            
+            int x = rnd.Next(0, GraphicsWindow.Width - 10);
+            int y = rnd.Next(0, GraphicsWindow.Height - 10);
+            
             Shapes.Move(eat, x, y);
             int s = 5;
             Turtle.Speed = s;
             Turtle.PenUp();
-            while(true)
+            TextWindow.WriteLine("Score = " + s);
+            while (true)
             {
                
-                //TextWindow.Write(Turtle.X + "    ");
-                //TextWindow.WriteLine(Turtle.Y);
                 Turtle.Move(5);
 
 
-                if (Turtle.X > x - 10 && Turtle.X < x + 10 && Turtle.Y > y - 10 && Turtle.Y < y + 10)
+                if (Turtle.X > x && Turtle.X < x + 10 && Turtle.Y > y && Turtle.Y < y + 10)
                 {
-                    x = rnd.Next(10, 625);
-                    y = rnd.Next(50, 500);
+                    x = rnd.Next(0, GraphicsWindow.Width - 10);
+                    y = rnd.Next(0, GraphicsWindow.Height - 10);
                     Shapes.Move(eat, x, y);
-                    TextWindow.WriteLine(x + "    " + y);
-                    //s = s + 3;
-                    //Turtle.Speed = s;
+
+                    s = s + 1;
+                    Turtle.Speed = s;
+                    TextWindow.WriteLine("Score = " + s);
                 }
 
             }
